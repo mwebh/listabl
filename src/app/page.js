@@ -58,7 +58,7 @@ export default function Home() {
 
 
   return (
-    <main className="flex flex-col gap-10">
+    <main className="flex flex-col gap-10 bg-neutral-50">
       <Header color={color} />
       <div className="flex flex-col px-10">
         <IncrementButton inputValue={inputValue} setInputValue={setInputValue} addList={addList} color={color} setColor={setColor} />

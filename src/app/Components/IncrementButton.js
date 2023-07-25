@@ -12,7 +12,7 @@ export default function IncrementButton({inputValue, setInputValue, addList, col
             value={inputValue}
             placeholder='Shopping, Garden Tools etc.'
             onChange={(e) => setInputValue(e.target.value)}
-            className={`${inputValue ? 'bg-neutral-50' : 'bg-neutral-100'} p-2 rounded transition-all duration-200 w-full`}
+            className={`${inputValue ? 'bg-neutral-100' : 'bg-neutral-200'} p-2 rounded transition-all duration-200 w-full`}
           />
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center`}
