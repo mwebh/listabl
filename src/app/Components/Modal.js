@@ -17,7 +17,7 @@ export default function Modal({modal, setModal, color}) {
 
   return (
     <div className={`fixed z-40 top-0 left-0 w-screen h-screen bg-neutral-800/30 backdrop-blur-sm ${modal ? 'opacity-100 pointer-events-auto delay-0' : 'opacity-0 pointer-events-none delay-500'} transition-all duration-200 flex justify-center items-center`}>
-        <div className={`h-5/6 w-1/3 max-w-lg min-w-[300px] bg-neutral-50 rounded-lg shadow-md flex flex-col gap-6 py-6 px-4 overflow-y-scroll ${modal ? 'opacity-100 pointer-events-auto delay-200 translate-x-0' : 'opacity-0 pointer-events-none delay-200 translate-x-8'} transition-all duration-200`}>
+        <div className={`h-[80dvh] w-1/3 max-w-lg min-w-[300px] bg-neutral-50 rounded-lg shadow-md flex flex-col gap-6 py-6 px-4 overflow-y-scroll ${modal ? 'opacity-100 pointer-events-auto delay-200 translate-x-0' : 'opacity-0 pointer-events-none delay-200 translate-x-8'} transition-all duration-200`}>
             <div className=' flex justify-between items-center max-w-full'>
                 <h2 className=' font-bold text-2xl'>Tips & Tricks</h2>
                 <button
