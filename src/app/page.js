@@ -64,12 +64,12 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-10 bg-neutral-50">
       <Header color={color} />
-      <div className="flex flex-col px-6 md:px-10">
+      <div className="flex flex-col px-6 md:px-10 sticky top-0 z-30 py-6 bg-neutral-50">
         <IncrementButton inputValue={inputValue} setInputValue={setInputValue} addList={addList} color={color} setColor={setColor} />
       </div>
       {
         list && (
-          <div className="flex flex-wrap gap-10 px-6 md:px-10 mb-10 max-w-full">
+          <div className="flex flex-wrap gap-10 px-6 md:px-10 mb-32 max-w-full">
             {
               list.map(listItem => {
                 return (
@@ -97,7 +97,7 @@ export default function Home() {
       }
       {
         !list && (
-          <div className=" px-6 md:px-10 max-w-full fade-in mb-10">
+          <div className=" px-6 md:px-10 max-w-full fade-in mb-20">
             <h3 
               className=" px-6 py-4 rounded-xl bg-neutral-800 text-neutral-50 text-base"
               >

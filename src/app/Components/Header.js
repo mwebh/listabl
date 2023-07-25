@@ -13,7 +13,7 @@ export default function Header({color}) {
 
   return (
     <div
-        className='flex justify-between w-screen h-max px-10 py-4 items-center sticky top-0 transition-colors duration-500'
+        className='flex justify-between w-screen h-max px-10 py-4 items-center relative top-0 transition-colors duration-500'
         style={{backgroundColor: color}}
     >
         <div>
