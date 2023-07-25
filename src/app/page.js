@@ -69,13 +69,13 @@ export default function Home() {
       </div>
       {
         list && (
-          <div className="flex flex-wrap gap-10 px-6 md:px-10 mb-10">
+          <div className="flex flex-wrap gap-10 px-6 md:px-10 mb-10 max-w-full">
             {
               list.map(listItem => {
                 return (
                   <div 
                     key={listItem.id}
-                    className={`fade-in flex justify-between items-center px-6 py-6 shadow-md rounded-md w-1/4 max-w-md min-w-[300px] h-max gap-4`}
+                    className={`fade-in flex justify-between items-center px-6 py-6 shadow-md rounded-md w-1/4 max-w-md min-w-[300px] mx-auto h-max gap-4`}
                     style={{backgroundColor: listItem.color}}
                   >
                     <p className=" px-4 py-2 rounded bg-white/80 shadow-md relative text-base">{listItem.name}</p>

@@ -3,7 +3,7 @@ import React from 'react'
 export default function IncrementButton({inputValue, setInputValue, addList, color, setColor}) {
   return (
     <div
-        className="flex flex-col gap-2 items-start w-1/3 max-w-md min-w-[300px]"  
+        className="flex flex-col gap-2 items-start w-1/3 max-w-md min-w-[300px] mx-auto"  
       >
         <p className={`text-neutral-400 border-b-2 border-b-neutral-400 text-ms ${inputValue ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-x-0'} transition-all duration-200 w-full`}>Add a new item</p>
         <form className='flex gap-2 items-center justify-between w-full'>
