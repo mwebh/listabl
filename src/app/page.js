@@ -8,17 +8,19 @@ export default function Home() {
   
   const [list, setList] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [color, setColor] = useState("#2e00ff");
+  const [color, setColor] = useState("#66BDFF");
   
   useEffect(() => {
     setList(JSON.parse(localStorage.getItem("Lists")))
   },[])
 
-  const addList = () => {
+  const addList = (e) => {
+    e.preventDefault();
     const newItem = {
       name: inputValue,
       id: list ? list.at(list.length - 1).id + 1 : 1,
-      color: color
+      color: color,
+      checked: false
     }
     if (list) {
       const newList = [
@@ -57,7 +59,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col gap-10">
-      <Header />
+      <Header color={color} />
       <div className="flex flex-col px-10">
         <IncrementButton inputValue={inputValue} setInputValue={setInputValue} addList={addList} color={color} setColor={setColor} />
       </div>
@@ -67,15 +69,14 @@ export default function Home() {
             {
               list.map(listItem => {
                 return (
-                  <Link 
-                    href="#"
-                    key={listItem.name}
-                    className={` fade-in flex justify-between items-center px-6 py-4 shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200 rounded-md w-1/4 max-w-md min-w-[300px]`}
+                  <div 
+                    key={listItem.id}
+                    className={`fade-in flex justify-between items-center px-6 py-4 shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200 rounded-md w-1/4 max-w-md min-w-[300px] h-max gap-4`}
                     style={{backgroundColor: listItem.color}}
                   >
-                    <p className=" px-4 py-2 rounded bg-white/80 shadow-md">{listItem.name}</p>
+                    <p className=" px-4 py-2 rounded bg-white/80 shadow-md relative">{listItem.name}</p>
                     <button
-                      className=" hover:text-red-500 pointer-events-auto bg-white/80 h-full aspect-square flex justify-center items-center rounded-full shadow-md"
+                      className=" hover:text-red-500 pointer-events-auto bg-white/80 h-10 aspect-square flex justify-center items-center rounded-full shadow-md"
                       onClick={() => deleteList(listItem.id)}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -83,21 +84,24 @@ export default function Home() {
                       </svg>
 
                     </button>
-                  </Link>
+                  </div>
                 )
               })
             }
           </div>
         )
       }
+      {
+        !list && (
+          <div className=" px-10 max-w-full fade-in">
+            <h3 
+              className=" px-6 py-4 rounded-xl bg-neutral-800 text-neutral-50"
+              >
+              You&apos;ve not got any items yet, simply type your items in the field above and choose a colour!
+            </h3>
+          </div>
+        )
+      }
     </main>
   )
-}
-
-export async function setList({data}) {
-  return localStorage.setItem("Lists",JSON.stringify(data))
-}
-
-export async function getList() {
-  return JSON.parse(localStorage.getItem("Lists"))
 }

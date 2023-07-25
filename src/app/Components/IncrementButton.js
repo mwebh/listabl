@@ -5,8 +5,8 @@ export default function IncrementButton({inputValue, setInputValue, addList, col
     <div
         className="flex flex-col gap-2 items-start w-1/3 max-w-md min-w-[300px]"  
       >
-        <p className={`text-neutral-400 border-b-2 border-b-neutral-400 text-xs ${inputValue ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-x-0'} transition-all duration-200 w-full`}>Add an item</p>
-        <div className='flex gap-2 items-center justify-between w-full'>
+        <p className={`text-neutral-400 border-b-2 border-b-neutral-400 text-xs ${inputValue ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-x-0'} transition-all duration-200 w-full`}>Add a new list</p>
+        <form className='flex gap-2 items-center justify-between w-full'>
           <input 
             type='text' 
             value={inputValue}
@@ -21,12 +21,13 @@ export default function IncrementButton({inputValue, setInputValue, addList, col
             <input type='color' className=' pointer-events-auto opacity-0 cursor-pointer' onChange={(e) => setColor(e.target.value)} value={color} />
           </div>
           <button
-            onClick={() => addList()}
+            type='submit'
+            onClick={(e) => addList(e)}
             className={`py-2 w-20 rounded active:brightness-90 transition-all duration-200 ${inputValue ? 'text-neutral-50 bg-blue-500 pointer-events-auto' : 'text-neutral-400 pointer-events-none'}`}
           >
             Add
           </button>
-        </div>
+        </form>
 
       </div>
   )

@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
+import Logo from "../../Images/Listabl.png"
 
-export default function Header() {
+export default function Header({color}) {
 
     const links = [
         // {
@@ -12,10 +13,11 @@ export default function Header() {
 
   return (
     <div
-        className='flex justify-between w-screen h-max px-10 py-4 bg-neutral-700 items-center sticky top-0'
+        className='flex justify-between w-screen h-max px-10 py-4 items-center sticky top-0'
+        style={{backgroundColor: color}}
     >
         <div>
-            <h2 className=' text-neutral-50 text-xl'>LISTABL</h2>
+            <img src={Logo.src} alt="Listabl" className=' max-h-10' />
         </div>
         <div className='flex gap-4'>
             {
