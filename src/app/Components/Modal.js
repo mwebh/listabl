@@ -12,6 +12,11 @@ export default function Modal({modal, setModal, color}) {
             title: "Creating new items",
             id:2,
             desc:"Creating new items is as simple as entering the item name, choosing a colour and clicking or tapping Add. You don't have to change the colour if you don't want to however this can help distinguish between tasks."
+        },
+        {
+            title: "Choosing a date",
+            id: 3,
+            desc: "You can now pick a due date for your task. Click or tap the calendar icon to simply choose a date or if you want you can put it in yourself. This way when you checkup on your tasks you'll know which ones you need to do first."
         }
     ]
 

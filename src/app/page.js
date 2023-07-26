@@ -8,40 +8,38 @@ import ItemNotification from "./Components/ItemNotification";
 
 export default function Home() {
   
-  const [list, setList] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-  const [color, setColor] = useState("#66BDFF");
-  const [checkbox, setCheckbox] = useState(false)
+  const [list, setList] = useState([])
+  const [inputValue, setInputValue] = useState("")
+  const [color, setColor] = useState("#66BDFF")
   const [modal, setModal] = useState(false)
   const [deleted, setDeleted] = useState(false)
+  const [date, setDate] = useState("")
   
   useEffect(() => {
     setList(JSON.parse(localStorage.getItem("Lists")))
-    console.log(list)
     setColor(localStorage.getItem("LastColour"))
   },[])
 
   const addList = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const newItem = {
       name: inputValue,
       id: list ? list.at(list.length - 1).id + 1 : 1,
       color: color,
-      completed: false
+      date: date,
+      createdAt: new Date()
     }
     if (list) {
       const newList = [
         ...list,
         newItem
       ]
-      console.log(newList)
       setList(newList)
       updateLocalStorage(JSON.stringify(newList))
     } else {
       const newList = [
         newItem
       ]
-      console.log(newList)
       setList(newList)
       updateLocalStorage(JSON.stringify(newList))
     }
@@ -74,7 +72,15 @@ export default function Home() {
     <main className="flex flex-col gap-10 bg-neutral-50">
       <Header color={color} list={list} />
       <div className="flex flex-col px-6 md:px-10 sticky top-0 z-30 py-6 bg-neutral-50 max-w-full">
-        <IncrementButton inputValue={inputValue} setInputValue={setInputValue} addList={addList} color={color} setColor={setColor} />
+        <IncrementButton 
+          inputValue={inputValue} 
+          setInputValue={setInputValue} 
+          addList={addList} 
+          color={color} 
+          setColor={setColor} 
+          dat={date}
+          setDate={setDate}
+        />
       </div>
       {
         list && (
@@ -87,11 +93,9 @@ export default function Home() {
                     className={`fade-in flex justify-between items-center px-6 py-6 shadow-md rounded-md w-1/4 max-w-md min-w-[300px] h-max gap-4`}
                     style={{backgroundColor: listItem.color}}
                   >
-                    <div className="relative">
-                      <p 
-                        className={`px-4 py-2 rounded bg-neutral-50 shadow-md relative text-base`}>
-                        {listItem.name}
-                      </p>
+                    <div className="relative px-4 py-2 rounded bg-neutral-50 shadow-md text-base flex flex-col gap-2 items-start">
+                      <p>{listItem.name}</p>
+                      {listItem.date && <p className="w-max py-1 px-2 bg-neutral-200 rounded-full text-xs">Due on: {listItem.date}</p>}
 
                     </div>
                     <button
