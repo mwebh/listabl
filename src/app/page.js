@@ -13,7 +13,7 @@ export default function Home() {
   const [color, setColor] = useState("#66BDFF")
   const [modal, setModal] = useState(false)
   const [deleted, setDeleted] = useState(false)
-  const [dueDate, setDueDate] = useState(new Date())
+  const [dueDate, setDueDate] = useState("")
   
   useEffect(() => {
     setList(JSON.parse(localStorage.getItem("Lists")))
@@ -26,7 +26,7 @@ export default function Home() {
       name: inputValue,
       id: list ? list.at(list.length - 1).id + 1 : 1,
       color: color,
-      date: dueDate.toLocaleDateString("en-GB"),
+      date: dueDate,
       createdAt: new Date()
     }
     if (list) {
@@ -44,7 +44,7 @@ export default function Home() {
       updateLocalStorage(JSON.stringify(newList))
     }
     setInputValue("")
-    setDueDate(new Date())
+    setDueDate("")
 
   }
   const updateLocalStorage = (data) => {
