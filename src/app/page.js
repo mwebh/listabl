@@ -13,7 +13,7 @@ export default function Home() {
   const [color, setColor] = useState("#66BDFF")
   const [modal, setModal] = useState(false)
   const [deleted, setDeleted] = useState(false)
-  const [date, setDate] = useState("")
+  const [dueDate, setDueDate] = useState(new Date())
   
   useEffect(() => {
     setList(JSON.parse(localStorage.getItem("Lists")))
@@ -26,7 +26,7 @@ export default function Home() {
       name: inputValue,
       id: list ? list.at(list.length - 1).id + 1 : 1,
       color: color,
-      date: date,
+      date: dueDate.toLocaleDateString("en-GB"),
       createdAt: new Date()
     }
     if (list) {
@@ -44,6 +44,7 @@ export default function Home() {
       updateLocalStorage(JSON.stringify(newList))
     }
     setInputValue("")
+    setDueDate(new Date())
 
   }
   const updateLocalStorage = (data) => {
@@ -78,8 +79,8 @@ export default function Home() {
           addList={addList} 
           color={color} 
           setColor={setColor} 
-          dat={date}
-          setDate={setDate}
+          dueDate={dueDate}
+          setDueDate={setDueDate}
         />
       </div>
       {
@@ -90,7 +91,7 @@ export default function Home() {
                 return (
                   <div 
                     key={listItem.id}
-                    className={`fade-in flex justify-between items-center px-6 py-6 shadow-md rounded-md w-1/4 max-w-md min-w-[300px] h-max gap-4`}
+                    className={`fade-in flex justify-between items-center px-6 py-6 shadow-md rounded w-1/4 max-w-md min-w-[300px] h-max gap-4`}
                     style={{backgroundColor: listItem.color}}
                   >
                     <div className="relative px-4 py-2 rounded bg-neutral-50 shadow-md text-base flex flex-col gap-2 items-start">
@@ -117,7 +118,7 @@ export default function Home() {
         !list && (
           <div className=" px-6 md:px-10 max-w-full fade-in mb-20">
             <h3 
-              className=" px-6 py-4 rounded-xl bg-neutral-800 text-neutral-50 text-base"
+              className=" px-6 py-4 rounded bg-neutral-800 text-neutral-50 text-base"
               >
               You&apos;ve not got any items yet, simply type in your items above and choose a colour!
             </h3>
