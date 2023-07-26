@@ -66,7 +66,7 @@ export default function Home() {
     setDeleted(true)
     setTimeout(() => {
       setDeleted(false)
-    },3000)
+    },2000)
   }
 
 
@@ -78,7 +78,7 @@ export default function Home() {
       </div>
       {
         list && (
-          <div className="flex flex-wrap gap-6 px-6 md:px-10 mb-32 max-w-full justify-start">
+          <div className="flex flex-wrap gap-6 px-6 md:px-10 mb-32 max-w-full justify-evenly lg:justify-start">
             {
               list.map(listItem => {
                 return (

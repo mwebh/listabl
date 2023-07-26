@@ -16,7 +16,7 @@
 }
 
 .flash-up {
-    animation: flash-up 3s both ease;
+    animation: flash-up 2s both ease;
 }
 @keyframes flash-up {
     0% {
