@@ -12,7 +12,7 @@ export default function Header({color, list}) {
         <div>
             <img src={Logo.src} alt="Listabl" className=' max-h-10' />
         </div>
-        <div className=' px-4 py-2 bg-neutral-50 rounded'>
+        <div className=' px-4 py-2 bg-neutral-50 rounded-lg'>
             {list && <p>Items: {list.length}</p>}
             {!list && <p>Items: 0</p>}
         </div>

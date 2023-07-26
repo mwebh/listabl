@@ -91,10 +91,10 @@ export default function Home() {
                 return (
                   <div 
                     key={listItem.id}
-                    className={`fade-in flex justify-between items-center px-6 py-6 shadow-md rounded w-1/4 max-w-md min-w-[300px] h-max gap-4`}
+                    className={`fade-in flex justify-between items-center px-6 py-6 shadow-md rounded-lg w-1/4 max-w-md min-w-[300px] h-max gap-4`}
                     style={{backgroundColor: listItem.color}}
                   >
-                    <div className="relative px-4 py-2 rounded bg-neutral-50 shadow-md text-base flex flex-col gap-2 items-start">
+                    <div className="relative px-4 py-2 rounded-lg bg-neutral-50 shadow-md text-base flex flex-col gap-2 items-start">
                       <p>{listItem.name}</p>
                       {listItem.date && <p className="w-max py-1 px-2 bg-neutral-200 rounded-full text-xs">Due on: {listItem.date}</p>}
 
@@ -118,7 +118,7 @@ export default function Home() {
         !list && (
           <div className=" px-6 md:px-10 max-w-full fade-in mb-20">
             <h3 
-              className=" px-6 py-4 rounded bg-neutral-800 text-neutral-50 text-base"
+              className=" px-6 py-4 rounded-lg bg-neutral-800 text-neutral-50 text-base"
               >
               You&apos;ve not got any items yet, simply type in your items above and choose a colour!
             </h3>

@@ -17,6 +17,11 @@ export default function Modal({modal, setModal, color}) {
             title: "Choosing a date",
             id: 3,
             desc: "You can now pick a due date for your task. Click or tap the calendar icon to simply choose a date or if you want you can put it in yourself. This way when you checkup on your tasks you'll know which ones you need to do first."
+        },
+        {
+            title: "More on dates",
+            id: 4,
+            desc: "Dates are shown in yyyy-MM-dd format. You don't have to provide a date if you don't want to. If you don't select a date the task or item will simply be created as is with no due date."
         }
     ]
 
@@ -33,7 +38,7 @@ export default function Modal({modal, setModal, color}) {
                     </svg>
                 </button>
             </div>
-            <p className='my-4'>To help you get the most out of Listabl. Here are some tips and things you may not know.</p>
+            <p className='my-4 font-semibold'>To help you get the most out of Listabl. Here are some tips and things you may not know.</p>
             {
                 tips.map(tip => {
                     return (
