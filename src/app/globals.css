@@ -14,3 +14,25 @@
         opacity: 1;
     }
 }
+
+.flash-up {
+    animation: flash-up 3s both ease;
+}
+@keyframes flash-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
